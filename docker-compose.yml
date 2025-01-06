@@ -35,3 +35,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+
+  webserver:
+    image: nginx:latest
+    container_name: nginx-webserver
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./frontend/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:80"
