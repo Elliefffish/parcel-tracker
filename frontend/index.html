@@ -263,7 +263,7 @@
             }
 
             try {
-                const response = await fetch(`http://10.22.22.229:8000/api/track/${platform}/${orderId}`);
+                const response = await fetch(`http://backend:8000/api/track/${platform}/${orderId}`);
                 const data = await response.json();
 
                 if (response.ok) {
@@ -303,7 +303,7 @@
             const platform = document.getElementById('modalPlatform').textContent;
             const orderId = document.getElementById('modalOrderId').textContent;
 
-            if (!email || !platform || !orderId) {
+            if (|| !platform || !orderId) {
                 alert('請輸入 Email、平台和訂單 ID！');
                 return;
             }
@@ -316,7 +316,7 @@
             };
 
             try {
-                const response = await fetch('http://10.22.22.229:8000/api/subscriptions', {
+                const response = await fetch(`http://backend:8000/api/subscriptions`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -359,7 +359,7 @@
             const platform = document.getElementById('cancelModalPlatform').textContent;
             const orderId = document.getElementById('cancelModalOrderId').textContent;
 
-            if (!email || !platform || !orderId) {
+            if (!platform || !orderId) {
                 alert('請輸入 Email、平台和訂單 ID！');
                 return;
             }
@@ -372,7 +372,7 @@
             };
 
             try {
-                const response = await fetch(`http://10.22.22.229:8000/api/subscriptions`, {
+                const response = await fetch(`http://backend:8000/api/subscriptions`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
